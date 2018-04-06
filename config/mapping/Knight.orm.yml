@@ -1,0 +1,19 @@
+App\Domain\Model\Knight:
+  type: entity
+  repositoryClass: App\Doctrine\Repository\Knights
+
+  id:
+    identifier:
+      type: string
+
+  fields:
+    color:
+      type: string
+      unique: true
+
+  oneToOne:
+    horse:
+      targetEntity: App\Domain\Model\Horse
+      joinColumn:
+        referencedColumnName: name
+        unique: true

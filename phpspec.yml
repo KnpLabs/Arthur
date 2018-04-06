@@ -1,0 +1,9 @@
+suites:
+  src:
+    namespace: App
+    src_path: '%paths.config%/src'
+    spec_path: '%paths.config%'
+    psr4_prefix: App
+
+extensions:
+  Memio\SpecGen\MemioSpecGenExtension: ~

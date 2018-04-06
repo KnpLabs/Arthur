@@ -1,0 +1,7 @@
+App\Domain\Model\Horse:
+  type: entity
+  repositoryClass: App\Doctrine\Repository\Horses
+
+  id:
+    name:
+      type: string

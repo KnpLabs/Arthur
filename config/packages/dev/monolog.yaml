@@ -13,10 +13,6 @@ monolog:
         #chromephp:
         #    type: chromephp
         #    level: info
-        centralized:
-            type: raven
-            dsn: https://3784e433700f412595e163a7d3bd1232:e5f1edb56f8145879d3adf16168680d9@sentry.io/1105673
-            level: error
 
         console:
             type:   console

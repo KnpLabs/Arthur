@@ -4,6 +4,7 @@
     "require": {
         "php": "^7.1.3",
         "ext-iconv": "*",
+        "ext-pdo_sqlite": "*",
         "rollbar/rollbar": "^1.3",
         "sentry/sentry": "^1.8",
         "symfony/console": "^4.0",
@@ -14,10 +15,12 @@
         "symfony/orm-pack": "^1.0",
         "symfony/security-bundle": "^4.0",
         "symfony/serializer-pack": "^1.0",
+        "symfony/twig-bundle": "^4.0",
         "symfony/yaml": "^4.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.11",
+        "heroku/heroku-buildpack-php": "^134.0",
         "memio/spec-gen": "^0.8.4",
         "phpspec/phpspec": "^4.3",
         "symfony/dotenv": "^4.0",
@@ -56,6 +59,10 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "compile": [
+            "php bin/console doctrine:schema:drop --force",
+            "php bin/console doctrine:schema:create"
         ]
     },
     "conflict": {

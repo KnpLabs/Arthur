@@ -7,6 +7,9 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        homepage:
+            pattern: '^/$'
+            anonymous: true
         camelot:
             anonymous: false
             stateless: true

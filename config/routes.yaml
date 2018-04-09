@@ -1,3 +1,10 @@
+homepage:
+  path: /
+  methods: GET
+  controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController:templateAction
+  defaults:
+    template: arthur.html.twig
+
 get_knights:
   path: /knights
   methods: GET

@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
 use App\Domain\Task\ListKnights;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class GetKnights
+final class GetKnights
 {
     /**
      * @var ListKnights
@@ -20,10 +22,12 @@ class GetKnights
      */
     private $normalizer;
 
-    public function __construct(ListKnights $listKnights, NormalizerInterface $normalizer)
-    {
+    public function __construct(
+        ListKnights $listKnights,
+        NormalizerInterface $normalizer
+    ) {
         $this->listKnights = $listKnights;
-        $this->normalizer = $normalizer;
+        $this->normalizer  = $normalizer;
     }
 
     public function __invoke(Request $request): Response

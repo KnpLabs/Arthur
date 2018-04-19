@@ -43,3 +43,7 @@ services:
             - getRepository
         arguments:
             - App\Domain\Model\Horse
+
+    App\EventListener\KnightWorkflowSubscriber:
+        tags:
+            - symfony.event_subscriber

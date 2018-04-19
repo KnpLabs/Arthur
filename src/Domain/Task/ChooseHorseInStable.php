@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Domain\Task;
 
-use App\Domain\Model;
 use App\Domain\Exception;
+use App\Domain\Model;
 use App\Domain\Repository;
 
-class ChooseHorseInStable
+final class ChooseHorseInStable
 {
     /**
      * @var Repository\Knights
@@ -18,13 +20,15 @@ class ChooseHorseInStable
      */
     private $horses;
 
-    public function __construct(Repository\Knights $knights, Repository\Horses $horses)
-    {
+    public function __construct(
+        Repository\Knights $knights,
+        Repository\Horses $horses
+    ) {
         $this->knights = $knights;
-        $this->horses = $horses;
+        $this->horses  = $horses;
     }
 
-    public function __invoke(Model\Knight $knight)
+    public function __invoke(Model\Knight $knight): void
     {
         foreach ($this->horses as $horse) {
             $mounting = $this->knights->mountingTheHorse($horse);

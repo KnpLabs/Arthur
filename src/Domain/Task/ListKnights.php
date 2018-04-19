@@ -1,12 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Domain\Task;
 
 use App\Domain\Repository;
-use Prophecy\Prophet;
-use App\Domain\Model\Knight;
 
-class ListKnights
+final class ListKnights
 {
     /**
      * @var Repository\Knights

@@ -1,26 +1,27 @@
 <?php
 
+declare(strict_types=1);
+
 namespace spec\App\Domain\Task;
 
+use App\Domain\Model\Knight;
+use App\Domain\Repository\Knights;
 use App\Domain\Task\ListKnights;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
-use App\Domain\Repository\Knights;
-use App\Domain\Model\Knight;
 
 class ListKnightsSpec extends ObjectBehavior
 {
-    function let(Knights $knights)
+    function let(Knights $knights): void
     {
         $this->beConstructedWith($knights);
     }
 
-    function it_is_initializable()
+    function it_is_initializable(): void
     {
         $this->shouldHaveType(ListKnights::class);
     }
 
-    function it_returns_all_knights($knights, Knight $knight)
+    function it_returns_all_knights($knights, Knight $knight): void
     {
         $knights->all()->willReturn([$knight])->shouldBeCalledTimes(1);
 

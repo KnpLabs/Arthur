@@ -1,0 +1,39 @@
+framework:
+    workflows:
+        knightifier:
+            type: 'workflow'
+            marking_store:
+                type: 'single_state'
+                arguments:
+                    - 'title'
+            supports:
+                - App\Domain\Model\Knight
+            places:
+                - peasant
+                - squire
+                - armorless
+                - knight
+                - champion
+                - king
+            transitions:
+                choosen:
+                    from: peasant
+                    to: squire
+                isKnightedWithoutArmor:
+                    from: squire
+                    to: armorless
+                isKnightedWithArmor:
+                    from: squire
+                    to: knight
+                withArmor:
+                    from: armorless
+                    to: knight
+                winTournament:
+                    from: knight
+                    to: champion
+                kingslay:
+                    from: champion
+                    to: king
+                lapse:
+                    from: king
+                    to: peasant

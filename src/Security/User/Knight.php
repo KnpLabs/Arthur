@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Security\User;
 
-use Symfony\Component\Security\Core\User\UserInterface;
 use App\Domain\Model;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-class Knight implements UserInterface
+final class Knight implements UserInterface
 {
     /**
      * @var Model\Knight
@@ -37,7 +39,7 @@ class Knight implements UserInterface
         return $this->knight->getColor();
     }
 
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
     }
 }

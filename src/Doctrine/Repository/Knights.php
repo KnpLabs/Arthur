@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Doctrine\Repository;
 
 use App\Domain;
 use Doctrine\ORM\EntityRepository;
 
-class Knights extends EntityRepository implements Domain\Repository\Knights
+final class Knights extends EntityRepository implements Domain\Repository\Knights
 {
     /**
      * {@inheritdoc}
@@ -15,8 +17,9 @@ class Knights extends EntityRepository implements Domain\Repository\Knights
         return $this->findAll();
     }
 
-    public function mountingTheHorse(Domain\Model\Horse $horse): ?Domain\Model\Knight
-    {
+    public function mountingTheHorse(
+        Domain\Model\Horse $horse
+    ): ?Domain\Model\Knight {
         return $this->findOneBy(['horse' => $horse]);
     }
 }

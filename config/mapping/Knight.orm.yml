@@ -10,6 +10,9 @@ App\Domain\Model\Knight:
     color:
       type: string
       unique: true
+    title:
+      type: string
+      nullable: true
 
   oneToOne:
     horse:

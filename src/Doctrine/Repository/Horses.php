@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Doctrine\Repository;
 
 use App\Domain;
-use Doctrine\ORM\EntityRepository;
 use ArrayIterator;
+use Doctrine\ORM\EntityRepository;
 
-class Horses extends EntityRepository implements Domain\Repository\Horses
+final class Horses extends EntityRepository implements Domain\Repository\Horses
 {
     public function getIterator()
     {

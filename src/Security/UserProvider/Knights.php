@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Security\UserProvider;
 
-use Symfony\Component\Security\Core\User\UserProviderInterface;
-use App\Security\User;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use App\Doctrine\Repository;
+use App\Security\User;
+use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
 
-class Knights implements UserProviderInterface
+final class Knights implements UserProviderInterface
 {
     /**
      * @var Repository\Knights

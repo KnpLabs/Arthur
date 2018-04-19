@@ -1,13 +1,32 @@
 <?php
 
 $finder = PhpCsFixer\Finder::create()
+    ->in('config')
+    ->in('public')
+    ->in('spec')
     ->in('src')
 ;
 
 return PhpCsFixer\Config::create()
     ->setFinder($finder)
     ->setRules([
-        '@Symfony' => true,
-        'array_syntax' => ['syntax' => 'short'],
+        '@PHP71Migration:risky'  => true,
+        '@Symfony'               => true,
+        'array_syntax'           => ['syntax' => 'short'],
+        'ordered_class_elements' => true,
+        'ordered_imports'        => true,
+        'binary_operator_spaces' => [
+            'operators' => [
+                '='  => 'align_single_space_minimal',
+                '=>' => 'align_single_space_minimal',
+            ],
+        ],
+        'PedroTroller/line_break_between_method_arguments'  => ['max-args' => 4, 'max-length' => 80],
+        'PedroTroller/line_break_between_statements'        => true,
+        'PedroTroller/ordered_with_getter_and_setter_first' => true,
+        'PedroTroller/phpspec'                              => true,
+        'PedroTroller/single_line_comment'                  => ['action' => 'expanded'],
     ])
+    ->setRiskyAllowed(true)
+    ->registerCustomFixers(new PedroTroller\CS\Fixer\Fixers())
 ;

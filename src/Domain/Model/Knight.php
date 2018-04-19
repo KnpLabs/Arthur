@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Domain\Model;
 
 class Knight
@@ -18,6 +20,11 @@ class Knight
      * @var Horse | null
      */
     private $horse;
+
+    /**
+     * @var string | null
+     */
+    private $title;
 
     /**
      * @var int
@@ -39,23 +46,33 @@ class Knight
         return $this->color;
     }
 
-    public function attributeAHorse(Horse $horse)
-    {
-        $this->horse = $horse;
-    }
-
     public function getHorse()
     {
         return $this->horse;
     }
 
-    public function increaseNumberOfVictories()
+    public function getTitle(): ?string
     {
-        $this->victories++;
+        return $this->title;
     }
 
-    public function increaseNumberOfDefeats()
+    public function setTitle(string $title): void
     {
-        $this->defeats++;
+        $this->title = $title;
+    }
+
+    public function attributeAHorse(Horse $horse): void
+    {
+        $this->horse = $horse;
+    }
+
+    public function increaseNumberOfVictories(): void
+    {
+        ++$this->victories;
+    }
+
+    public function increaseNumberOfDefeats(): void
+    {
+        ++$this->defeats;
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Domain\Task;
 
 use App\Domain\FightResolver;
@@ -14,7 +16,7 @@ final class FightAKnightAgainstAnOtherOne
         $this->fightResolver = $fightResolver;
     }
 
-    public function __invoke(Knight ...$knights)
+    public function __invoke(Knight ...$knights): void
     {
         $winner = $this->fightResolver->resolve(...$knights);
 

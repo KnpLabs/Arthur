@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Serializer\Normalizer;
 
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use App\Domain\Model;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class Horse implements NormalizerInterface
+final class Horse implements NormalizerInterface
 {
     public function normalize($object, $format = null, array $context = [])
     {
